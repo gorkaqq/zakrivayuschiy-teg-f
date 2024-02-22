@@ -570,17 +570,19 @@
       </button>
     </footer>
     <dialog class="modal" id="dialog-id">
-      <svg class="floppy" viewBox="0 0 40 40">
-        <use href="./svg/floppy.svg#floppy" />
-      </svg>
-      <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
-      <button
-        class="button modal__button"
-        type="button"
-        onclick="window['dialog-id'].close()"
-      >
-        <span class="button__text">OK</span>
-      </button>
+      <form class="modal__form">
+        <svg class="floppy" viewBox="0 0 40 40">
+          <use href="./svg/floppy.svg#floppy" />
+        </svg>
+        <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
+        <button
+          class="button modal__button"
+          type="button"
+          onclick="window['dialog-id'].close()"
+        >
+          <span class="button__text">OK</span>
+        </button>
+      </form>
     </dialog>
     <script src="./scripts/like.js"></script>
   </body>

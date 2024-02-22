@@ -299,11 +299,6 @@
 
 /* HEART ANIMATION CLICK */
 
-.main-body {
-  fill: var(--heart-main-body-color);
-  transition: fill 0.3s linear;
-}
-
 .like-icon.is-liked .main-body {
   fill: var(--heart-like-color);
   transition: fill 0.3s 0.05s linear;
@@ -382,8 +377,19 @@
 /* MODAL */
 
 .modal {
-  padding: 28px;
+  padding: 0;
+  border: none;
+}
+
+.modal__form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: min-content 1fr;
+  gap: 30px 20px;
+  max-inline-size: 353px;
+  padding: 29px;
   border: var(--border);
+
   background-color: var(--bg-color);
   font-family: var(--accent-font);
   color: var(--accent-color);
@@ -391,21 +397,13 @@
   font-size: 14px;
 }
 
-.modal .floppy {
+.modal__form .floppy {
   inline-size: 39px;
   block-size: 39px;
 }
 
 .modal__text {
   line-height: 1.5;
-}
-
-.modal[open] {
-  display: grid;
-  align-items: center;
-  grid-template-columns: min-content 1fr;
-  gap: 30px 20px;
-  max-inline-size: 353px;
 }
 
 .modal__button {
@@ -459,7 +457,8 @@
     block-size: 28px;
   }
 
-  .modal[open] {
+  .modal__form {
     max-inline-size: 341px;
+    padding: 30px 40px;
   }
 }
