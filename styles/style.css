@@ -17,4 +17,462 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-inline-size: 700px;
+  margin: 0 auto;
+
+  font-family: var(--main-font, sans-serif);
+  font-variation-settings: 'wght' var(--normal-main-font);
+  color: var(--accent-color);
+
+  background-image: var(--cover-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin: 100px 0;
+  padding: clamp(7.5rem, 6.3462rem + 4.9231vw, 8.5rem) 0 23px;
+  border: var(--border);
+
+  background-color: var(--bg-color);
+  font-family: var(--accent-font);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  text-transform: uppercase;
+}
+
+.heading__decoration {
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
+}
+
+.heading__title {
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+}
+
+.theme-menu__list {
+  position: relative;
+  left: 9px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 12px;
+}
+
+.theme-menu__button {
+  position: relative;
+  display: block;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  background-color: currentColor;
+  transform: scaleX(0);
+  block-size: 2px;
+  transition: transform 0.3s ease;
+  transform-origin: 0 50%;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  color: var(--disabled-color);
+}
+
+@media (hover: hover) {
+  .theme-menu__button:hover {
+    color: var(--disabled-color);
+  }
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  color: var(--disabled-color);
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+/* CARDS */
+
+.card {
+  background-color: var(--bg-color);
+  border: var(--border);
+}
+
+.card:not(:last-of-type) {
+  margin-bottom: 50px;
+}
+
+.card__title {
+  font-size: 18px;
+  padding: 5px 24px 3px 10px;
+  font-variation-settings: 'wght' var(--bold-main-font);
+  border-block-end: var(--border-bottom);
+}
+
+.card__image-box {
+  position: relative;
+  margin: 0;
+  border-block-end: var(--border-bottom);
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__label {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-shadow: -1px 0 var(--text-stroke-color), 0 1px var(--text-stroke-color),
+    1px 0 var(--text-stroke-color), 0 -1px var(--text-stroke-color);
+}
+
+@supports (
+  (text-stroke: 1px var(--text-stroke-color)) or
+    (-webkit-text-stroke: 1px var(--text-stroke-color))
+) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    text-stroke: 1px var(--text-stroke-color);
+    text-shadow: none;
+  }
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+  padding: 25px;
+
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.button {
+  position: relative;
+  display: block;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 93%;
+  border: var(--border);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px var(--accent-color);
+}
+
+.button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+@media (hover: hover) {
+  .button:hover::after {
+    background-color: var(--accent-color);
+    transform: translateX(0);
+  }
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  color: var(--diff-color);
+  mix-blend-mode: difference;
+}
+
+.card__buttons {
+  align-self: end;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+.heart {
+  fill: var(--heart-contour-color);
+}
+
+/* HEART ANIMATION HOVER */
+
+.main-body {
+  fill: var(--heart-main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.core {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+/* HEART ANIMATION ACTIVE */
+
+.main-body {
+  fill: var(--heart-main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--heart-like-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.core {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button:active .core {
+  fill: var(--heart-like-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon {
+  display: block;
+  inline-size: 37px;
+  block-size: 34px;
+}
+
+/* HEART ANIMATION CLICK */
+
+.main-body {
+  fill: var(--heart-main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-like-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.core {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-like-color);
+  transition: fill 0.3s linear;
+}
+
+.contour {
+  fill: var(--heart-contour-color);
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-like-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: spark 0.3s 0.3s 2 ease-in alternate;
+}
+
+.heart {
+  transform: scale(1);
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale 0.3s 0.1s 2 ease-in alternate;
+}
+
+.card__like-button {
+  padding: 10.5px 0;
+  text-align: center;
+  inline-size: 130px;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 50px 32px 103px;
+  text-align: center;
+}
+
+.floppy {
+  inline-size: 21px;
+  block-size: 21px;
+  color: var(--diff-color);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.footer__button {
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 20px;
+}
+
+/* MODAL */
+
+.modal {
+  padding: 28px;
+  border: var(--border);
+  background-color: var(--bg-color);
+  font-family: var(--accent-font);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.modal .floppy {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.modal__text {
+  line-height: 1.5;
+}
+
+.modal[open] {
+  display: grid;
+  align-items: center;
+  grid-template-columns: min-content 1fr;
+  gap: 30px 20px;
+  max-inline-size: 353px;
+}
+
+.modal__button {
+  padding: 10.5px 0;
+  grid-column: 1 / -1;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* FILTERS */
+
+.saturate {
+  filter: saturate(20%);
+}
+
+.saturate-300 {
+  filter: saturate(3);
+}
+
+.hue-rotate {
+  filter: hue-rotate(25deg);
+}
+
+.invert {
+  filter: invert(0.8);
+}
+
+.sepia {
+  filter: sepia(0.9);
+}
+
+.blur {
+  filter: blur(15px);
+}
+
+.multi {
+  filter: hue-rotate(100deg) contrast(60%) blur(2px);
+}
+
+/* MEDIA QUERIES */
+
+@media (width < 420px) {
+  .card__label {
+    inset-inline-end: 13px;
+  }
+
+  .floppy {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .modal[open] {
+    max-inline-size: 341px;
+  }
 }

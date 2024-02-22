@@ -4,3 +4,126 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+  --bold-main-font: 700;
+  --normal-main-font: 400;
+
+  --bg-color: #fff;
+  --accent-color: #000;
+  --disabled-color: rgba(0 0 0 / 0.6);
+  --text-stroke-color: #fff;
+  --diff-color: #fff;
+  --heart-contour-color: #000;
+  --heart-core-color: #fff;
+  --heart-main-body-color: #fff;
+
+  --cover-gradient: repeating-linear-gradient(
+      to right,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7, #1a1a1a);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bold-main-font: 700;
+    --normal-main-font: 400;
+
+    --bg-color: #fff;
+    --accent-color: #000;
+    --disabled-color: rgba(0 0 0 / 0.6);
+    --text-stroke-color: #fff;
+    --diff-color: #fff;
+    --heart-contour-color: #000;
+    --heart-core-color: #fff;
+    --heart-main-body-color: #fff;
+
+    --cover-gradient: repeating-linear-gradient(
+        to right,
+        #d3d3d3,
+        #d3d3d3 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #d3d3d3,
+        #d3d3d3 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(to bottom, #e7e7e7, #1a1a1a);
+  }
+}
+
+:root.theme-dark {
+  --bold-main-font: 785;
+  --normal-main-font: 465;
+
+  --bg-color: #000;
+  --accent-color: #00cc14;
+  --disabled-color: rgba(0 204 20 / 0.6);
+  --text-stroke-color: #000;
+  --diff-color: #00cc14;
+  --heart-contour-color: #00cc14;
+  --heart-core-color: #000;
+  --heart-main-body-color: #000;
+
+  --cover-gradient: repeating-linear-gradient(
+      to right,
+      #000,
+      #000 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #000,
+      #000 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #007f0c, #004306);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bold-main-font: 785;
+    --normal-main-font: 465;
+
+    --bg-color: #000;
+    --accent-color: #00cc14;
+    --disabled-color: rgba(0 204 20 / 0.6);
+    --text-stroke-color: #000;
+    --diff-color: #00cc14;
+    --heart-contour-color: #00cc14;
+    --heart-core-color: #000;
+    --heart-main-body-color: #000;
+
+    --cover-gradient: repeating-linear-gradient(
+        to right,
+        #000,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #000,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(to bottom, #007f0c, #004306);
+  }
+}
