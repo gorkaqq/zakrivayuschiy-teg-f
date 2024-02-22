@@ -257,10 +257,6 @@
   border: 2px solid var(--accent-color);
 }
 
-.heart {
-  fill: var(--heart-contour-color);
-}
-
 /* HEART ANIMATION HOVER */
 
 .main-body {
@@ -285,19 +281,9 @@
 
 /* HEART ANIMATION ACTIVE */
 
-.main-body {
-  fill: var(--heart-main-body-color);
-  transition: fill 0.3s linear;
-}
-
 .card__icon-button:active .main-body {
   fill: var(--heart-like-color);
   transition: fill 0.3s 0.05s linear;
-}
-
-.core {
-  fill: var(--heart-core-color);
-  transition: fill 0.3s 0.03s linear;
 }
 
 .card__icon-button:active .core {
@@ -354,6 +340,7 @@
 .heart {
   transform: scale(1);
   transform-origin: center;
+  fill: var(--heart-contour-color);
 }
 
 .like-icon.is-liked .heart {
