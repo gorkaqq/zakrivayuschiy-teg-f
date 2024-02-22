@@ -371,12 +371,7 @@
 
 /* MODAL */
 
-.modal {
-  padding: 0;
-  border: none;
-}
-
-.modal__form {
+.modal[open] {
   display: grid;
   align-items: center;
   grid-template-columns: min-content 1fr;
@@ -392,7 +387,7 @@
   font-size: 14px;
 }
 
-.modal__form .floppy {
+.modal .floppy {
   inline-size: 39px;
   block-size: 39px;
 }
@@ -401,9 +396,13 @@
   line-height: 1.5;
 }
 
-.modal__button {
-  padding: 10.5px 0;
+.modal form {
   grid-column: 1 / -1;
+}
+
+.modal__button {
+  width: 100%;
+  padding: 10.5px 0;
 }
 
 .modal::backdrop {
@@ -452,7 +451,7 @@
     block-size: 28px;
   }
 
-  .modal__form {
+  .modal[open] {
     max-inline-size: 341px;
     padding: 30px 40px;
   }
