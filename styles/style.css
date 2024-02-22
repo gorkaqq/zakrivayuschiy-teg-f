@@ -102,7 +102,7 @@
   color: var(--disabled-color);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .theme-menu__button:hover {
     color: var(--disabled-color);
   }
@@ -220,7 +220,7 @@
   transform: translateX(-100%);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .button:hover::after {
     background-color: var(--accent-color);
     transform: translateX(0);
@@ -302,11 +302,6 @@
 .like-icon.is-liked .main-body {
   fill: var(--heart-like-color);
   transition: fill 0.3s 0.05s linear;
-}
-
-.core {
-  fill: var(--heart-core-color);
-  transition: fill 0.3s 0.03s linear;
 }
 
 .like-icon.is-liked .core {
